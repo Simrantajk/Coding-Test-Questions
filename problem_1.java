@@ -43,3 +43,6 @@ class Main {
 
     }
 }
+
+//Input : log =("0:start:0", "1:start:3", "1:end:6", "0:end:10"); n =2;
+//Output : [7,4]
