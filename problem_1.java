@@ -12,28 +12,26 @@ class Main {
 
         int[] temp = new int[thirdPart + 1];
 
-        for (int i = 0; i < logn-1; i++) {
-            
-            String[] each_entry = log.get(i).split(":");
-            int task_id = Integer.parseInt(each_entry[0]);
-            String status = each_entry[1];
-            int minp=task_id;
-            int timestamp = Integer.parseInt(each_entry[2]);
-            int count_ex = timestamp;
-               String[] next_entry = log.get(i+1).split(":");
+        for (int i = 0; i < logn-1; i++)
+        {
+                String[] each_entry = log.get(i).split(":");
+                int task_id = Integer.parseInt(each_entry[0]);
+                String status = each_entry[1];
+                int minp=task_id;
+                int timestamp = Integer.parseInt(each_entry[2]);
+                int count_ex = timestamp;
+                String[] next_entry = log.get(i+1).split(":");
                 int next_taskid = Integer.parseInt(next_entry[0]);
                 String status_next = next_entry[1];
                 int timestamp_next = Integer.parseInt(next_entry[2]);
                 int temp_prev = task_id;
-                
-            while (status.equals("start")&& task_id >= minp && timestamp_next>=count_ex) {
+                while (status.equals("start")&& task_id >= minp && timestamp_next>=count_ex) {
                     temp[count_ex] = task_id;
                     count_ex++;
-            }
-                
-            }
-                int[] res = new int[n];
-                System.out.println(Arrays.toString(temp));
+                }
+        }
+        int[] res = new int[n];
+        //System.out.println(Arrays.toString(temp)); temp stores which task is under execution at every second
 
         for (int i = 0; i <= thirdPart; i++) {
             int digit = temp[i];
